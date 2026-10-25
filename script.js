@@ -102,6 +102,7 @@ function countdown() {
         const ending = endings[Math.floor(Math.random() * endings.length)].text;
         recordScratch.addEventListener("ended", (e) => {
             alert(ending + "\n\nYou successfully sorted " + (moves - mistakes) + " out of " + dt + " dice.\n\nRefresh the page to play again.")
+            document.getElementById('restart').classList.remove('hidden');
         });
         recordScratch.play();
     } else {
@@ -171,6 +172,10 @@ dice.forEach((die) => {
         delete die.dataset.lastParent;
     });
 });
+
+document.getElementById('restart-btn').addEventListener('click', (e) => {
+    window.location.reload();
+})
 
 alert("You have one minute to sort the dice.");
 const interval = setInterval(countdown, 1000);

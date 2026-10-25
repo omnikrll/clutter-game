@@ -77,6 +77,20 @@ h1 {
     font-size: 24px;
 }
 
-audio {
-    display: none;
+audio, .hidden {
+    display: none !important;
+}
+
+#restart {
+    width: 300px;
+    height: 100px;
+    border: 8px ridge grey;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: lightgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
