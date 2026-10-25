@@ -3,14 +3,16 @@
 }
 
 html, body {
-    width: 1280px;
-    height: 720px;
+    width: 1260px;
+    height: 700px;
+    background: white;
 }
 
 #playfield {
     position: relative;
-    width: 1280px;
-    height: 720px;
+    width: 1260px;
+    height: 700px;
+    /* border: 1px solid black; */
 }
 
 h1 {
@@ -26,7 +28,7 @@ h1 {
 
 .bin-wrapper {
     width: 256px;
-    height: 590px;
+    height: 540px;
     border: 8px ridge grey;
     background: lightgrey;
     margin: 2px;
