@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>prototype cart dice bin sorting simulator 2000</title>
+        <link rel="stylesheet" href="static/css/style.css"/>
+    </head>
+    <body>
+        <div id="playfield">
+            <h1>prototype cart dice bin sorting simulator 2000</h1>
+            <div id="bins">
+                <div class="bin d4" data-faces="4" id="d4_bin">d4 bin</div>
+                <div class="bin d6" data-faces="6" id="d6_bin">d6 bin</div>
+                <div class="bin d8" data-faces="8" id="d8_bin">d8 bin</div>
+                <div class="bin d10" data-faces="10" id="d10_bin">d10 bin</div>
+                <div class="bin d12" data-faces="12" id="d12_bin">d12 bin</div>
+                <div class="bin d20" data-faces="20" id="d20_bin">d20 bin</div>
+            </div>
+
+            <div id="timer">00:60</div>
+        </div>
+
+        <template id="temp_4">
+            <div class="die d4" data-faces="4" draggable="true">d4</div>
+        </template>
+        <template id="temp_6">
+            <div class="die d6" data-faces="6" draggable="true">d6</div>
+        </template>
+        <template id="temp_8">
+            <div class="die d8" data-faces="8" draggable="true">d8</div>
+        </template>
+        <template id="temp_10">
+            <div class="die d10" data-faces="10" draggable="true">d10</div>
+        </template>
+        <template id="temp_12">
+            <div class="die d12" data-faces="12" draggable="true">d12</div>
+        </template>
+        <template id="temp_20">
+            <div class="die d20" data-faces="20" draggable="true">d20</div>
+        </template>
+
+        <script src="script.js"></script>
+    </body>
+</html>
