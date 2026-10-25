@@ -76,3 +76,7 @@ h1 {
     padding: 12px;
     font-size: 24px;
 }
+
+audio {
+    display: none;
+}

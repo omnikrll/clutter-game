@@ -49,6 +49,11 @@ const endings = [
         img: 'img/logan.jpg'
     }
 ];
+//sounds
+const pickupSound = new Audio('audio/pickup.wav');
+const dropSound = new Audio('audio/drop.wav');
+const recordScratch = new Audio('audio/record_scratch.wav');
+
 // let timeLeft = 1;
 let timeLeft = 59;
 let moves = 0;
@@ -89,7 +94,10 @@ function countdown() {
         clearTimeout(interval);
         showMistakes();
         const ending = endings[Math.floor(Math.random() * endings.length)].text;
-        alert(ending + "\n\nYou successfully sorted " + (moves - mistakes) + " out of " + dt + " dice.\n\nRefresh the page to play again.")
+        recordScratch.addEventListener("ended", (e) => {
+            alert(ending + "\n\nYou successfully sorted " + (moves - mistakes) + " out of " + dt + " dice.\n\nRefresh the page to play again.")
+        });
+        recordScratch.play();
     } else {
         timeLeft--;
     }
@@ -124,6 +132,8 @@ bins.forEach((bin) => {
             mistakes++;
             console.log(mistakes + " mistakes");
         }
+
+        dropSound.play();
     });
 
 
@@ -141,6 +151,8 @@ dice.forEach((die) => {
         die.dataset.lastParent = die.parentNode.id;
         event.dataTransfer.effectAllowed = "move";
         event.dataTransfer.setData("die", "");
+
+        pickupSound.play();
     });
 
     die.addEventListener("dragend", (e) => {
