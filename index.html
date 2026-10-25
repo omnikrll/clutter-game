@@ -2,19 +2,37 @@
 <html lang="en">
     <head>
         <title>prototype cart dice bin sorting simulator 2000</title>
-        <link rel="stylesheet" href="static/css/style.css"/>
+        <link rel="stylesheet" href="css/style.css"/>
     </head>
     <body>
         <div id="playfield">
             <h1>prototype cart dice bin sorting simulator 2000</h1>
-            <div id="bins">
-                <div class="bin d4" data-faces="4" id="d4_bin">d4 bin</div>
-                <div class="bin d6" data-faces="6" id="d6_bin">d6 bin</div>
-                <div class="bin d8" data-faces="8" id="d8_bin">d8 bin</div>
-                <div class="bin d10" data-faces="10" id="d10_bin">d10 bin</div>
-                <div class="bin d12" data-faces="12" id="d12_bin">d12 bin</div>
-                <div class="bin d20" data-faces="20" id="d20_bin">d20 bin</div>
-            </div>
+            <dl id="bins">
+                <div class="bin-wrapper">
+                    <dt>d4 bin</dt>
+                    <dd class="bin d4" data-faces="4" id="d4_bin"></dd>
+                </div>
+                <div class="bin-wrapper">
+                    <dt>d6 bin</dt>
+                    <dd class="bin d6" data-faces="6" id="d6_bin"></dd>
+                </div>
+                <div class="bin-wrapper">
+                    <dt>d8 bin</dt>
+                    <dd class="bin d8" data-faces="8" id="d8_bin"></dd>
+                </div>
+                <div class="bin-wrapper">
+                    <dt>d10 bin</dt>
+                    <dd class="bin d10" data-faces="10" id="d10_bin"></dd>
+                </div>
+                <div class="bin-wrapper">
+                    <dt>d12 bin</dt>
+                    <dd class="bin d12" data-faces="12" id="d12_bin"></dd>
+                </div>
+                <div class="bin-wrapper">
+                    <dt>d20 bin</dt>
+                    <dd class="bin d20" data-faces="20" id="d20_bin"></dd>
+                </div>
+            </dl>
 
             <div id="timer">00:60</div>
         </div>

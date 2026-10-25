@@ -4,16 +4,50 @@ const dt = dpb * 6; //total number of dice
 const bins = document.querySelectorAll(".bin");
 const timer = document.getElementById("timer");
 const endings = [
-    'Eric Zimmerman says, "I need 200 decks of cards for Game Design 1!"',
-    'Naomi Clark says, "The microphones in 640 are out of batteries!"',
-    'Clara Fernandez-Vara says, "I can\'t get into the microphone closet in lecture hall 202!"',
-    'The Librarians say, "We can\'t get the Nintendo 64 to work!"',
-    'Shawn Pierre says, "I need to borrow a MIDI controller!"',
-    'Ramiro Corbetta says, "I need to borrow all the webcams you have!"',
-    'Ashley Guajardo says, "The smartboard in the Large Conference Room isn\'t working!"',
-    'Charles Pratt says, "Can I borrow a whiteboard eraser? There isn\'t one in 627."',
-    'John Hwang says, "Do you have a webcam and a microphone I can borrow for the fulltimers meeting?"',
-    'Logan Clare says, "It\'s time to set up for the lecture series, can you bring the camera and tripod down to 202?"'
+    {
+        text: 'Eric Zimmerman says, "I need 200 decks of cards for Game Design 1!"',
+        img: 'img/eric.jpg'
+    },
+    {
+        text: 'Naomi Clark says, "The microphones in 640 are out of batteries!"',
+        img: 'img/naomi.jpg'
+    },
+    {
+        text: 'Clara Fernandez-Vara says, "I can\'t get into the microphone closet in lecture hall 202!"',
+        img: 'img/clara.jpg'
+    },
+    {
+        text: 'The Librarians say, "We can\'t get the Nintendo 64 to work!"',
+        img: 'img/librarians.jpg'
+    },
+    {
+        text: 'Shawn Pierre says, "I need to borrow a MIDI controller!"',
+        img: 'img/shawn.jpg'
+    },
+    {
+        text: 'Ramiro Corbetta says, "I need to borrow all the webcams you have!"',
+        img: 'img/ramiro.jpg'
+    },
+    {
+        text: 'Ashley Guajardo says, "The smartboard in the Large Conference Room isn\'t working!"',
+        img: 'img/ashley.jpg'
+    },
+    {
+        text: 'Charles Pratt says, "Can I borrow a whiteboard eraser? There isn\'t one in 627."',
+        img: 'img/charles.jpg'
+    },
+    {
+        text: 'Mitu Khandaker says, "My Quest 3 headsets won\'t connect to the wifi, can you help?"',
+        img: 'img/mitu.jpg'
+    },
+    {
+        text: 'Jake Weidner says, "Do you have a webcam and a microphone I can borrow an Incubator meeting?"',
+        img: 'img/jake.jpg'
+    },
+    {
+        text: 'Logan Clare says, "It\'s time to set up for the lecture series, can you bring the camera and tripod down to 202?"',
+        img: 'img/logan.jpg'
+    }
 ];
 // let timeLeft = 1;
 let timeLeft = 59;
@@ -54,7 +88,7 @@ function countdown() {
     if (timeLeft == 0) {
         clearTimeout(interval);
         showMistakes();
-        const ending = endings[Math.floor(Math.random() * endings.length)];
+        const ending = endings[Math.floor(Math.random() * endings.length)].text;
         alert(ending + "\n\nYou successfully sorted " + (moves - mistakes) + " out of " + dt + " dice.\n\nRefresh the page to play again.")
     } else {
         timeLeft--;
