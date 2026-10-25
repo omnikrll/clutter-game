@@ -15,10 +15,10 @@ const endings = [
     'John Hwang says, "Do you have a webcam and a microphone I can borrow for the fulltimers meeting?"',
     'Logan Clare says, "It\'s time to set up for the lecture series, can you bring the camera and tripod down to 202?"'
 ];
+// let timeLeft = 1;
 let timeLeft = 59;
-let sorted = 0;
-// counting "sorted" and "unsorted" dice on drop feels innacurate. 
-// instead, on completion, count child nodes and total up correct/incorrect per bin
+let moves = 0;
+let mistakes = 0;
 
 
 function generateRandomDie(faces) {
@@ -40,13 +40,12 @@ function countdown() {
     if (timeLeft == 0) {
         clearTimeout(interval);
         const ending = endings[Math.floor(Math.random() * endings.length)];
-        alert(ending + "\n\nYou successfully sorted " + sorted + " out of " + dt + " dice.\n\nRefresh the page to play again.")
+        alert(ending + "\n\nYou successfully sorted " + (moves - mistakes) + " out of " + dt + " dice.\n\nRefresh the page to play again.")
     } else {
         timeLeft--;
     }
 }
 
-//put all this into main game loop function
 bins.forEach((bin) => {
     bin.addEventListener("dragover", (e) => {
         if (e.dataTransfer.types.includes("die")) {
@@ -61,13 +60,15 @@ bins.forEach((bin) => {
         draggedDie.remove();
         bin.appendChild(draggedDie);
         console.log(draggedDie.classList[1] + " in " + bin.classList[1] + " bin");
+        moves++;
 
         if (bin.classList.contains(draggedDie.classList[1])) {
-            sorted++;
-            console.log("correct. sorted " + sorted + " dice so far");
+            console.log("correct. moved " + moves + " dice so far");
+            console.log(mistakes + " mistakes");
         } else {
-            sorted--;
-            console.log("incorrect. sorted " + sorted + " dice so far");
+            console.log("incorrect. moved " + moves + " dice so far");
+            mistakes++;
+            console.log(mistakes + " mistakes");
         }
     });
 
