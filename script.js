@@ -53,6 +53,8 @@ const endings = [
 const pickupSound = new Audio('audio/pickup.wav');
 const dropSound = new Audio('audio/drop.wav');
 const recordScratch = new Audio('audio/record_scratch.wav');
+const music = new Audio('audio/windowlicker.mp3');
+let isPlaying = false;
 
 // let timeLeft = 1;
 let timeLeft = 59;
@@ -93,6 +95,10 @@ function countdown() {
     if (timeLeft == 0) {
         clearTimeout(interval);
         showMistakes();
+
+        music.pause();
+        music.currentTime = 0;
+
         const ending = endings[Math.floor(Math.random() * endings.length)].text;
         recordScratch.addEventListener("ended", (e) => {
             alert(ending + "\n\nYou successfully sorted " + (moves - mistakes) + " out of " + dt + " dice.\n\nRefresh the page to play again.")
@@ -147,6 +153,11 @@ const dice = document.querySelectorAll(".die");
 
 dice.forEach((die) => {
     die.addEventListener("dragstart", (e) => {
+        if (!isPlaying) {
+            music.play();
+            isPlaying = true;
+        }
+
         die.id = "dragged-die";
         die.dataset.lastParent = die.parentNode.id;
         event.dataTransfer.effectAllowed = "move";
@@ -162,5 +173,4 @@ dice.forEach((die) => {
 });
 
 alert("You have one minute to sort the dice.");
-
 const interval = setInterval(countdown, 1000);
