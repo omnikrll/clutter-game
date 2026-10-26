@@ -65,7 +65,7 @@ h1 {
     background: white;
 }
 
-.die.mistake {
+.die.bin-mistake {
     background: red !important;
 }
 
@@ -111,7 +111,7 @@ audio, .hidden {
 #character-image {
     width: 100%;
     height: auto;
-    filter: grayscale(100%) contrast(5);
+    filter: grayscale(100%) brightness(1.5) contrast(1.75);
 }
 
 #character-name {
