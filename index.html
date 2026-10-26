@@ -35,10 +35,6 @@
             </dl>
 
             <div id="timer">00:60</div>
-
-            <div id="restart" class="hidden">
-                <button id="restart-btn">Restart</button>
-            </div>
         </div>
 
         <template id="temp_4">
@@ -59,6 +55,25 @@
         <template id="temp_20">
             <div class="die d20" data-faces="20" draggable="true">d20</div>
         </template>
+        
+        <dialog id="start-dialog">
+            <p>You have one minute to sort the dice.</p>
+            <button type="button" id="start-button">Start</button>
+        </dialog>
+
+        <dialog id="game-over-dialog">
+            <div id="character-message">
+                <div id="img-container">
+                    <img id="character-image" src="" alt=""/>
+                </div>
+                <div>
+                    <p id="character-name"></p>
+                    <p id="character-text"></p>
+                    <p id="game-over-summary"></p>
+                </div>
+            </div>
+            <button type="button" id="restart-button">Play Again</button>
+        </dialog>
 
         <script src="script.js"></script>
     </body>

@@ -3,49 +3,63 @@ const dpb = 16; //dice per bin
 const dt = dpb * 6; //total number of dice
 const bins = document.querySelectorAll(".bin");
 const timer = document.getElementById("timer");
+const startDialog = document.getElementById("start-dialog");
+const startButton = document.getElementById("start-button");
+const restartButton = document.getElementById("restart-button");
 const endings = [
     {
-        text: 'Eric Zimmerman says, "I need 200 decks of cards for Game Design 1!"',
+        person: 'Eric Zimmerman',
+        text: '"I need 200 decks of cards for Game Design 1!"',
         img: 'img/eric.jpg'
     },
     {
-        text: 'Naomi Clark says, "The microphones in 640 are out of batteries!"',
+        person: 'Naomi Clark',
+        text: '"The microphones in 640 are out of batteries!"',
         img: 'img/naomi.jpg'
     },
     {
-        text: 'Clara Fernandez-Vara says, "I can\'t get into the microphone closet in lecture hall 202!"',
+        person: 'Clara Fernandez-Vara',
+        text: '"I can\'t get into the microphone closet in lecture hall 202!"',
         img: 'img/clara.jpg'
     },
     {
-        text: 'The Librarians say, "We can\'t get the Nintendo 64 to work!"',
+        person: 'The Librarians',
+        text: '"We can\'t get the Nintendo 64 to work!"',
         img: 'img/librarians.jpg'
     },
     {
-        text: 'Shawn Pierre says, "I need to borrow a MIDI controller!"',
+        person: 'Shawn Pierre',
+        text: '"Hey, can I borrow a MIDI controller?"',
         img: 'img/shawn.jpg'
     },
     {
-        text: 'Ramiro Corbetta says, "I need to borrow all the webcams you have!"',
+        person: 'Ramiro Corbetta',
+        text: '"I need to borrow all the webcams you have!"',
         img: 'img/ramiro.jpg'
     },
     {
-        text: 'Ashley Guajardo says, "The smartboard in the Large Conference Room isn\'t working!"',
+        person: 'Ashley Guajardo',
+        text: '"The smartboard in the Large Conference Room isn\'t working!"',
         img: 'img/ashley.jpg'
     },
     {
-        text: 'Charles Pratt says, "Can I borrow a whiteboard eraser? There isn\'t one in 627."',
+        person: 'Charles Pratt',
+        text: '"Can I borrow a whiteboard eraser? There isn\'t one in 627."',
         img: 'img/charles.jpg'
     },
     {
-        text: 'Mitu Khandaker says, "My Quest 3 headsets won\'t connect to the wifi, can you help?"',
+        person: 'Mitu Khandaker',
+        text: '"My Quest 3 headsets won\'t connect to the wifi, can you help?"',
         img: 'img/mitu.jpg'
     },
     {
-        text: 'Jake Weidner says, "Do you have a webcam and a microphone I can borrow an Incubator meeting?"',
+        person: 'Jake Weidner',
+        text: '"Do you have a webcam and a microphone I can borrow an Incubator meeting?"',
         img: 'img/jake.jpg'
     },
     {
-        text: 'Logan Clare says, "It\'s time to set up for the lecture series, can you bring the camera and tripod down to 202?"',
+        person: 'Logan Clare',
+        text: '"It\'s time to set up for the lecture series, can you bring the camera and tripod down to 202?"',
         img: 'img/logan.jpg'
     }
 ];
@@ -54,13 +68,11 @@ const pickupSound = new Audio('audio/pickup.wav');
 const dropSound = new Audio('audio/drop.wav');
 const recordScratch = new Audio('audio/record_scratch.wav');
 const music = new Audio('audio/windowlicker.mp3');
-let isPlaying = false;
-
 // let timeLeft = 1;
 let timeLeft = 59;
 let moves = 0;
 let mistakes = 0;
-
+let interval;
 
 function generateRandomDie(faces) {
     let num;
@@ -99,12 +111,17 @@ function countdown() {
         music.pause();
         music.currentTime = 0;
 
-        const ending = endings[Math.floor(Math.random() * endings.length)].text;
-        recordScratch.addEventListener("ended", (e) => {
-            alert(ending + "\n\nYou successfully sorted " + (moves - mistakes) + " out of " + dt + " dice.\n\nRefresh the page to play again.")
-            document.getElementById('restart').classList.remove('hidden');
-        });
         recordScratch.play();
+
+        const ending = endings[Math.floor(Math.random() * endings.length)];
+
+        document.getElementById("character-image").src = ending.img;
+        document.getElementById("character-image").alt = ending.person;
+        document.getElementById("character-name").textContent = ending.person + ':';
+        document.getElementById("character-text").textContent = ending.text;
+        document.getElementById("game-over-summary").textContent = `You successfully sorted ${(moves - mistakes)} dice.`
+
+        document.getElementById("game-over-dialog").showModal();
     } else {
         timeLeft--;
     }
@@ -154,11 +171,6 @@ const dice = document.querySelectorAll(".die");
 
 dice.forEach((die) => {
     die.addEventListener("dragstart", (e) => {
-        if (!isPlaying) {
-            music.play();
-            isPlaying = true;
-        }
-
         die.id = "dragged-die";
         die.dataset.lastParent = die.parentNode.id;
         event.dataTransfer.effectAllowed = "move";
@@ -173,9 +185,14 @@ dice.forEach((die) => {
     });
 });
 
-document.getElementById('restart-btn').addEventListener('click', (e) => {
+document.getElementById('restart-button').addEventListener('click', (e) => {
     window.location.reload();
-})
+});
 
-alert("You have one minute to sort the dice.");
-const interval = setInterval(countdown, 1000);
+document.getElementById('start-button').addEventListener('click', (e) => {
+    music.play();
+    interval = setInterval(countdown, 1000);
+    document.getElementById('start-dialog').close();
+});
+
+document.getElementById('start-dialog').showModal();
