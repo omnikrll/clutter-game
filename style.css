@@ -13,7 +13,6 @@ html, body {
     position: relative;
     width: 1260px;
     height: 700px;
-    /* border: 1px solid black; */
 }
 
 h1 {
@@ -62,6 +61,7 @@ h1 {
     margin: 2px;
     padding: 2px;
     color: transparent;
+    border-radius: 20px;
     background-position-y: 0px;
     filter: brightness(1.75);
 }
@@ -92,7 +92,6 @@ h1 {
 
 .die.bin-mistake {
     box-shadow: 0 0 10px 10px red;
-    border-radius: 20px;
 }
 
 #timer {
