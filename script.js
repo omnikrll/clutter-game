@@ -57,7 +57,7 @@ const endings = [
     {
         person: 'Logan Clare',
         text: '"It\'s time to set up for the lecture series, can you bring the camera and tripod down to 202?"',
-        img: 'img/people/people/logan.jpg'
+        img: 'img/people/logan.jpg'
     }
 ];
 //sounds

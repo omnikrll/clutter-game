@@ -70,12 +70,29 @@ h1 {
     background-image: url('img/dice/d4-sprite.png');
 }
 
+.die.d6 {
+    background-image: url('img/dice/d6-sprite.png');
+}
+
+.die.d8 {
+    background-image: url('img/dice/d8-sprite.png');
+}
+
+.die.d10 {
+    background-image: url('img/dice/d10-sprite.png');
+}
+
+.die.d12 {
+    background-image: url('img/dice/d12-sprite.png');
+}
+
 .die.d20 {
     background-image: url('img/dice/d20-sprite.png');
 }
 
 .die.bin-mistake {
-    background: red !important;
+    box-shadow: 0 0 10px 10px red;
+    border-radius: 20px;
 }
 
 #timer {
