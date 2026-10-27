@@ -2,7 +2,7 @@
 const dpb = 16; //dice per bin
 // const dpb = 6;
 const dt = dpb * 6; //total number of dice
-const dieValues = [4,6,8,10,12,20];
+const diceValues = [4,6,8,10,12,20];
 const endings = [
     {
         person: 'Eric Zimmerman',
@@ -86,7 +86,7 @@ function generateRandomDie(faces) {
     if ((Math.round(Math.random())) == 0) {
         num = faces;
     } else {
-        num = dieValues[Math.floor(Math.random() * dieValues.length)];
+        num = diceValues[Math.floor(Math.random() * diceValues.length)];
     }
 
     const template = document.querySelector('#temp_' + num);
@@ -189,6 +189,8 @@ bins.forEach((bin) => {
 const dice = document.querySelectorAll('.die');
 
 dice.forEach((die) => {
+    die.style.backgroundPositionX = (Math.floor(Math.random() * 5) * 40) + 'px';
+
     die.addEventListener('dragstart', (e) => {
         die.id = 'dragged-die';
         die.dataset.lastParent = die.parentNode.id;

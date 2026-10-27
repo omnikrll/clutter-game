@@ -59,10 +59,19 @@ h1 {
 .die {
     width: 40px;
     height: 40px;
-    border: 4px outset darkslateblue;
     margin: 2px;
     padding: 2px;
-    background: white;
+    color: transparent;
+    background-position-y: 0px;
+    filter: brightness(1.75);
+}
+
+.die.d4 {
+    background-image: url('img/dice/d4-sprite.png');
+}
+
+.die.d20 {
+    background-image: url('img/dice/d20-sprite.png');
 }
 
 .die.bin-mistake {
