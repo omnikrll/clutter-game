@@ -62,7 +62,6 @@ h1 {
     margin: 2px;
     padding: 2px;
     color: transparent;
-    border-radius: 20px;
     background-position-y: 0px;
     filter: brightness(1.75);
 }
@@ -92,6 +91,7 @@ h1 {
 }
 
 .die.bin-mistake {
+    border-radius: 20px;
     box-shadow: 0 0 10px 10px red;
     order: -1;
 }
