@@ -58,6 +58,16 @@ const endings = [
         person: 'Logan Clare',
         text: '"It\'s time to set up for the lecture series, can you bring the camera and tripod down to 202?"',
         img: 'img/people/logan.jpg'
+    },
+    {
+        person: 'Liz Ryerson',
+        text: '"Hey, can you let me in the library? I have a recitation in 10 minutes."',
+        img: 'img/people/liz.jpg'
+    },
+    {
+        person: 'Flan Falacci',
+        text: '"My student\'s laptop isn\'t connecting to the TV in 626, do you have another HDMI dongle we could try?"',
+        img: 'img/people/flan.jpg'
     }
 ];
 //sounds

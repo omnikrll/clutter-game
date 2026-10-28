@@ -137,8 +137,16 @@ audio, .hidden {
 
 #character-image {
     width: 100%;
-    height: auto;
     filter: grayscale(100%) brightness(1.5) contrast(1.75);
+    height: auto;
+}
+
+#character-image[src="img/people/shawn.jpg"] {
+    filter: grayscale(100%) brightness(1.75) contrast(1.5);
+}
+
+#character-image[src="img/people/flan.jpg"] {
+    filter: brightness(1.25) contrast(1.5)
 }
 
 #character-name {
