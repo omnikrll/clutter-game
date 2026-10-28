@@ -104,7 +104,11 @@ function showMistakes() {
             }
         }
 
-        if (binMistakes == 0) bin.classList.add('all-clear');
+        if (binMistakes == 0) {
+            bin.classList.add('all-clear');
+        } else {
+            bin.style.flexDirection = 'row';
+        }
     });
 }
 
