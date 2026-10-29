@@ -1,4 +1,4 @@
-#prototype cart dice bin sorting simulator 2000
+# prototype cart dice bin sorting simulator 2000
 
 Submission for [Jamkadium 2026](https://itch.io/jam/jamkadium-2026)
 
