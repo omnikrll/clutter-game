@@ -26,8 +26,11 @@ Featuring the following faculty, staff, and alumni of the NYU Game Center, in al
 
 Sounds:
 ["CoinRattle03" by xtraplex](https://freesound.org/people/xtraplex/sounds/121612/)
+
 ["D&D_DICE__1XD20+1XD4_002_Shake_Roll" by Code_E](https://freesound.org/people/Code_E/sounds/575176/)
+
 ["record_scratch" by simkiott](https://freesound.org/people/simkiott/sounds/43404/)
+
 ["CrowdYay" from SimCity 2000 via Spriter's Resource](https://sounds.spriters-resource.com/playstation/simcity2k/asset/394534/)
 
 Music: Aphex Twin, "Windowlicker"
