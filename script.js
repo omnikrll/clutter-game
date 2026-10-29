@@ -1,6 +1,5 @@
 //constant values
 const dpb = 16; //dice per bin
-// const dpb = 6;
 const dt = dpb * 6; //total number of dice
 const diceValues = [4,6,8,10,12,20];
 const endings = [
@@ -68,6 +67,11 @@ const endings = [
         person: 'Flan Falacci',
         text: '"My student\'s laptop isn\'t connecting to the TV in 626, do you have another HDMI dongle we could try?"',
         img: 'img/people/flan.jpg'
+    },
+    {
+        person: 'Blake Andrews',
+        text: '"I\'m doing this Glenn Branca-style performance, do you have any Guitar Hero controllers I can borrow?"',
+        img: 'img/people/blake.jpg' 
     }
 ];
 //sounds
@@ -86,7 +90,6 @@ const gameOverSummary = document.getElementById('game-over-summary');
 const gameOverDialog = document.getElementById('game-over-dialog');
 //mutable values
 let timeLeft = 59;
-// let timeLeft = 1;
 let moves = 0;
 let mistakes = 0;
 let interval;
