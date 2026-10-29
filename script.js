@@ -80,6 +80,11 @@ const dropSound = new Audio('audio/drop.wav');
 const recordScratch = new Audio('audio/record_scratch.wav');
 const cheerSound = new Audio('audio/CrowdYay.wav');
 const music = new Audio('audio/windowlicker.mp3');
+
+pickupSound.volume = 0.75;
+dropSound.volume = 0.75;
+recordScratch.volume = 0.75;
+music.volume = 0.65;
 //frequently referenced dom elements
 const bins = document.querySelectorAll('.bin');
 const timer = document.getElementById('timer');
